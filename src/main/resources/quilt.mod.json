@@ -1,0 +1,34 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "io.github.doesnotsitproperly",
+		"id": "bottle_o_piss",
+		"version": "${version}",
+		"metadata": {
+			"name": "Bottle o' Piss",
+			"description": "Finally, a Minecraft mod that lets you piss",
+			"contributors": {
+				"doesnotsitproperly": "Owner"
+			},
+			"icon": "assets/bottle_o_piss/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "io.github.doesnotsitproperly.bottle_o_piss.BottleOPiss"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.18.3-"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"versions": ">=6.0.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.19.4"
+			}
+		]
+	}
+}
