@@ -19,30 +19,30 @@ public class BottleOPiss implements ModInitializer {
 	public void onInitialize(ModContainer mod) {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("piss")
 			.then(argument("number", IntegerArgumentType.integer(1, Integer.MAX_VALUE))
-				.executes(context -> {
-					ServerPlayerEntity player = context.getSource().getPlayer();
+				.executes(ctx -> {
+					ServerPlayerEntity player = ctx.getSource().getPlayer();
 					if (player != null) {
-						ItemStack itemStack = new ItemStack(Items.SPLASH_POTION);
-						NbtCompound nbtCompound = new NbtCompound();
+						ItemStack bottleOPiss = new ItemStack(Items.SPLASH_POTION);
+						NbtCompound bottleOPissNbt = new NbtCompound();
 				
-						nbtCompound.putInt("CustomPotionColor", 16776960);
+						bottleOPissNbt.putInt("CustomPotionColor", 16776960);
 				
 						NbtCompound display = new NbtCompound();
 						display.putString("Name", "[{\"text\":\"Bottle o\' Piss\",\"italic\":false,\"color\":\"yellow\"}]");
-						nbtCompound.put("display", display);
+						bottleOPissNbt.put("display", display);
 				
 						NbtList customPotionEffects = new NbtList();
 						NbtCompound effects = new NbtCompound();
 						effects.putInt("Id", 9);
 						effects.putInt("Duration", 600);
 						customPotionEffects.add(effects);
-						nbtCompound.put("CustomPotionEffects", customPotionEffects);
+						bottleOPissNbt.put("CustomPotionEffects", customPotionEffects);
 				
-						itemStack.setNbt(nbtCompound);
+						bottleOPiss.setNbt(bottleOPissNbt);
 
 						PlayerInventory playerInventory = player.getInventory();
-						for (int i = 0; i < IntegerArgumentType.getInteger(context, "number"); i++) {
-							playerInventory.offerOrDrop(itemStack.copy());
+						for (int i = 0; i < IntegerArgumentType.getInteger(ctx, "number"); i++) {
+							playerInventory.offerOrDrop(bottleOPiss.copy());
 						}
 					}
 					return 1;
