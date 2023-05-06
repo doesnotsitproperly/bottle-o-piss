@@ -2,4 +2,6 @@
 
 Finally, a Minecraft mod that lets you piss
 
-Adds a `/piss <number>` command, which gives you yellow splash potions of nausea
+Adds:
+- `/piss` command, which spawns a yellow, nausea-inducing area of effect
+- `/pissbottles <number>` command, which gives you yellow splash potions of nausea
